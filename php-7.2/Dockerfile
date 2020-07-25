@@ -1,10 +1,12 @@
 # Inspired from https://blog.silarhi.fr/image-docker-php-apache-parfaite/
 FROM php:7.2-apache
 
-# Install and configure PHP
+# Install system dependencies
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-  libicu-dev
+  libicu-dev git
+
+# Install and configure PHP
 RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
