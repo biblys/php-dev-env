@@ -43,4 +43,4 @@ $ git clone git@github.com:biblys/php-dev-env.git
 $ cd php-7.2
 $ docker build -t biblys/php-dev-env:7.2 .
 $ docker push biblys/php-dev-env:7.2
-```
+```cp
