@@ -4,10 +4,10 @@ FROM php:7.3-apache
 # Install system dependencies
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-  libicu-dev git
+  libicu-dev git libzip-dev zip
 
-# Install and configure PHP
-RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql
+# Install PHP & extensions
+RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
 # Configure Biblys site
