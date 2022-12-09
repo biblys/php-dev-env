@@ -1,6 +1,6 @@
-# Docker PHP development environement
+# Docker PHP development environment
 
-A Docker PHP development environement used by Biblys
+A Docker PHP development environment used by Biblys
 
 Enabled modules:
 - mod_rewrite
