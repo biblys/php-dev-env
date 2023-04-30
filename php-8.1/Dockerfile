@@ -7,7 +7,7 @@ RUN apt-get update && \
   libicu-dev git libzip-dev zip
 
 # Install PHP & extensions
-RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip
+RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
 # Configure Biblys site
