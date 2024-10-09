@@ -4,10 +4,10 @@ FROM php:8.1-apache
 # Install system dependencies
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-  libicu-dev git libzip-dev zip
+  libicu-dev git libzip-dev zip libxml2-dev
 
 # Install PHP & extensions
-RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath
+RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath soap
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
 # Configure Biblys site
