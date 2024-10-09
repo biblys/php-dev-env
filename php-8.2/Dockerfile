@@ -1,5 +1,5 @@
 # Inspired from https://blog.silarhi.fr/image-docker-php-apache-parfaite/
-FROM php:8.1-apache
+FROM php:8.2-apache
 
 # Install system dependencies
 RUN apt-get update && \
