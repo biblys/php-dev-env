@@ -15,32 +15,28 @@ PHP app must have :
 From CLI:
 
 ```console
-$ docker run -p 8080:80 -v '$(pwd):/usr/src/:cached' -d biblys/php-dev-env:7.2
+$ docker run -p 8080:80 -v '$(pwd):/usr/src/:cached' -d biblys/php-dev-env:8.1
 ```
 
 Using docker-compose (example):
 
 ```yaml
-version: '3.7'
 services:
   biblys:
     container_name: biblys-dev-env
-    image: biblys-dev-env
-    build:
-      context: .
-      dockerfile: ./Dockerfile
+    image: biblys/php-dev-env:8.1
     restart: on-failure
     volumes:
       - './:/usr/src/:cached'
     ports:
-      - '8080:80'
+      - '8088:80'
 ```
 
 ## Update image : build & push
 
-```console
-$ git clone git@github.com:biblys/php-dev-env.git
-$ cd php-7.2
-$ docker build -t biblys/php-dev-env:7.2 .
-$ docker push biblys/php-dev-env:7.2
-```cp
+```shell
+php_version=8.1
+cd php-$php_version
+docker build -t biblys/php-dev-env:$php_version .
+docker push biblys/php-dev-env:$php_version
+```
