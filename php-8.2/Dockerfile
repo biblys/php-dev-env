@@ -7,7 +7,7 @@ RUN apt-get update && \
   libicu-dev git libzip-dev zip libxml2-dev
 
 # Install PHP & extensions
-RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath soap
+RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath soap intl
 RUN pecl install apcu && docker-php-ext-enable apcu
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
