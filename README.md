@@ -32,7 +32,7 @@ services:
       - '8088:80'
 ```
 
-## Update image : build & push
+## Update image: build & push
 
 ```shell
 php_version=8.1

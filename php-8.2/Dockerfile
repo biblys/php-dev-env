@@ -8,6 +8,7 @@ RUN apt-get update && \
 
 # Install PHP & extensions
 RUN docker-php-ext-install -j$(nproc) opcache pdo_mysql zip bcmath soap
+RUN pecl install apcu && docker-php-ext-enable apcu
 COPY ./conf/php.ini /usr/local/etc/php/conf.d/app.ini
 
 # Configure Biblys site
